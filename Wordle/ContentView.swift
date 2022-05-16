@@ -9,13 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            ForEach(0..<5) {_ in
+                HStack {
+                    Spacer()
+                    ForEach(0..<5) { _ in
+                        Rectangle()
+                            .foregroundColor(.red)
+                            .border(.gray)
+                            .frame(width: 70, height: 70)
+                    }
+                    Spacer()
+                }
+                
+            }
+            Spacer()
+        }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewDevice("iPhone 13")
+            ContentView()
+        }
     }
 }
